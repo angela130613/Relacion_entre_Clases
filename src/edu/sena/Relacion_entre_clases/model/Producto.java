@@ -4,6 +4,7 @@ public class Producto {
     private String codigo;
     private String nombre;
     private double precio;
+    private static int ultimoCodigo;
 
     public String getCodigo() {
         return codigo;
@@ -27,5 +28,13 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public static int getUltimoCodigo() {
+        return ultimoCodigo;
+    }
+
+    public static void setUltimoCodigo(int ultimoCodigo) {
+        Producto.ultimoCodigo = ultimoCodigo;
     }
 }
