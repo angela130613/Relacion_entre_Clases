@@ -3,16 +3,18 @@ package edu.sena.Relacion_entre_clases.model;
 public class Producto {
     private int codigo;
     private String nombre;
-    private double precio;
+    public static double precio;
     private static int ultimoCodigo;
 
+// Constructor
     public Producto(String nombre, double precio){
         ultimoCodigo++;
         this.codigo = ultimoCodigo;
         this.nombre = nombre;
-        this.precio = precio;
+        Producto.precio = precio;
     }
 
+// Get y Set
     public int getCodigo() {
         return codigo;
     }
@@ -34,7 +36,7 @@ public class Producto {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        Producto.precio = precio;
     }
 
     public static int getUltimoCodigo() {
@@ -45,6 +47,7 @@ public class Producto {
         Producto.ultimoCodigo = ultimoCodigo;
     }
 
+// To String
     @Override
     public String toString() {
 
