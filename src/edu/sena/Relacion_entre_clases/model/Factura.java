@@ -6,13 +6,13 @@ import java.util.Date;
 public class Factura {
     private final int folio;
     private final String descripcion;
-    private final String fecha;
+    private final Date fecha;
     private final Cliente cliente;
     private final ItemFactura[] items;
     private int indiceItems; // Este índice te permitirá saber cuántos ítems han sido añadidos.
     private static final int MAX_ITEMS = 10; // Define el número máximo de ítems permitidos en la factura.
 
-    public Factura(int folio, String descripcion, String fecha, Cliente cliente) {
+    public Factura(int folio, String descripcion,Date fecha, Cliente cliente) {
         this.folio = folio;
         this.descripcion = descripcion;
         this.fecha = fecha;
