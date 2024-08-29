@@ -12,10 +12,16 @@ public class Factura {
     private int indiceItems; // Este índice te permitirá saber cuántos ítems han sido añadidos.
     private static final int MAX_ITEMS = 10; // Define el número máximo de ítems permitidos en la factura.
 
-    public Factura(int folio, String descripcion,Date fecha, Cliente cliente) {
+    // Constructor que usa la fecha actual si no se proporciona una fecha
+    public Factura(int folio, String descripcion, Cliente cliente) {
+        this(folio, descripcion, new Date(), cliente); // Llama al otro constructor usando la fecha actual
+    }
+
+    // Constructor que permite especificar una fecha
+    public Factura(int folio, String descripcion, Date fecha, Cliente cliente) {
         this.folio = folio;
         this.descripcion = descripcion;
-        this.fecha = fecha;
+        this.fecha = fecha != null ? fecha : new Date(); // Usa la fecha actual si se pasa un null
         this.cliente = cliente;
         this.items = new ItemFactura[MAX_ITEMS];
         this.indiceItems = 0;
@@ -60,7 +66,7 @@ public class Factura {
 
         SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
         sb.append("Fecha Emisión: ")
-                .append(df.format(this.fecha))
+                .append(df.format(this.fecha)) // Usa la fecha asignada (actual o proporcionada)
                 .append("\n")
                 .append("\n#\tNombre\t$\tCant.\tTotal\n");
 

@@ -17,11 +17,7 @@ public class Main {
         System.out.print("Ingrese el folio: ");
         int folio = s.nextInt();
 
-        System.out.print("Ingrese la fecha: ");
-        Date fecha;
-        fecha = s.nextLine();
-
-        Factura factura = new Factura(folio, descripcion, fecha, cliente);
+        Factura factura = new Factura(folio, descripcion, cliente);
 
         Producto producto;
 
